@@ -34,7 +34,7 @@ internal class Program
 
         int dd = 8;
         int dd /= 4; // divide el valor de la derecha a la variable de la izquierda y asigna el resultado a esa variable dd = 2
-     // ------------------------------------------------------------------------------------------------------------------------------------ //
+    //------------------------------------------------------------------------------------------------------------------------------------ //
                      // Operadores de Comparacion // 
 
         // operador de igual que  (==) // 
@@ -64,7 +64,7 @@ internal class Program
         // Operador Menor o Igual Que (<=) // 
         bool resMenorIgual = kk <= gg;
         Console.Write ( resMenorIgual ); // deberia  imprimir falso ya que 40 no es menor ni igual a 37 // 
-// --------------------------------------------------------------------------------------------------------------------------// 
+    // --------------------------------------------------------------------------------------------------------------------------// 
                     // Operadores Logicos // 
        // Operador "Y" (&&), Operador "O" (||), Operador "negacion" (!) //
         bool Valor1 = true;
@@ -75,11 +75,11 @@ internal class Program
         Console.Wirite ("!a:" + (!a));// si una condicion utiliza negacion la transforma en lo conterario, si es verdadera pasaria a ser alsa
 
         Console.Readline();
-//-------------------------------------------------------------------------------------------------------------------------------//
+    //-------------------------------------------------------------------------------------------------------------------------------//
 
-        //Tipos de estructuras de Control// 
+        //Tipos de estructuras de Control
 
-        // if-else// 
+        // if-else Control de flujo
 
         int yearBirth, currentYear = 2024, age;
         Console.WriteLine ("Please enter your year of brith: ");
@@ -92,9 +92,84 @@ internal class Program
         }
         else
             Console.WriteLine ("is not of legal age");
+    //---------------------------------------------------------------------------------------------------------------//
+        // Switch-case Estructura de control de flujo
 
+        /* Programa que permita ingresar un número cualquiera y luego mostrar el  siguiente menú:   
+        1. Determinar si es positivo o negativo 
+        2. Determinar si es par o impar  
+        El programa debe realizar las operaciones que el usuario seleccione del menú */
         
+        Console.WriteLine ("Ingrese un numero Cualquiera");
+        double numeroCual = double.Parse (Console.Readline());
 
+        Console.WriteLine ("Eliga una Opcion");
+        Console.WriteLine ("1.Determintar si es positivo o Negativo");
+        Console.WriteLine ("2.Determinar si es par o impar");
+        int opcion = int.Parse (Console.Readline());
 
+        switch (opcion)
+        {
+            case 1:
+                if (numeroCual > 0)
+                {
+                    Console.WriteLine ("El numero ingresado es positivo");
+                }
+                else 
+                {
+                    Console.WriteLine ("El numero ingresado es negativo");
+                }
+                break;
+            case 2:
+                if (numeroCual % 2 == 0)
+                {
+                    Console.WriteLine ("El numero ingresado es par");
+                }
+                else
+                {
+                    Console.WriteLine ("El numero ingresado es impar")
+                }
+                break;
+            default:
+                Console.WriteLine ("Opcion invalida");
+                break;       
+        }
+    //--------------------------------------------------------------------------------------------------------------//
+        // While Estructura de control de flujo
+
+        /* Programa que reciba N calificaciones de una materia, y luego calcule:
+        a) La nota promedio 
+        b) La nota mayor 
+        c) Si El estudiante pasa o no la materia 
+        (Promedio>=4.0)*/ 
+        
+        double nota,acu = 0,max = nota,b = 0;
+        char parar = 'p';
+        Console.WriteLine("A continuacion podra ingresar las notas de la materia correspondiente, por favor digitar la letra 'p' cuando halla terminado de ingresar las notas en su totalidad ");
+        Console.WriteLine(" Recibira los resultados de 'nota promedio' 'nota mayor' y 'si el estudiante pasa o no la materia' ");
+
+        while (nota != parar)
+        {
+            Console.WriteLine ("Por favor ingrese las notas correspindientes a su materia, recuerde oprimir la tecla 'p' para terminar el programa y obtener los resultados ");
+            nota = double.Parse (Console.Readline());
+
+            if (nota > max)
+            {
+                max = nota;
+                acu += nota;
+                b++;
+            }
+        }
+
+        double prom = acu / b;
+        Console.WriteLine ("el promedio del estudiante es: " + prom);
+        Console.WriteLine ("la nota maxima que obtuvo el estudiante fue:" + max);
+        
+        if (prom >= 4.0)
+        {
+            Console.WriteLine ("El estudiante aprobo la materia");
+        }
+        else 
+            Console.WriteLine ("El estudiante no aprobo la materia");
     }
 }
